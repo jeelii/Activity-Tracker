@@ -1,0 +1,24 @@
+.date {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+}
+
+.date--active {
+  background: forestgreen;
+}
+
+.date__weekday,
+.date__number {}
+
+.date__weekday {
+  font-size: .75em;
+}
+
+.date__number {
+  font-size: 1.5em;
+  font-weight: bold;
+}
