@@ -1,10 +1,102 @@
 [
-  {
-    "activity-id": 123,
-    "title": "Yoga"
-  },
-  {
-    "activity-id": 124,
-    "title": "Pull ups"
-  }
+	{
+		"activity_id": 1,
+		"title": "Upper Body Strength Workout / Hannah Eden",
+		"duration": "15",
+		"intensity": "5",
+		"link": "https://www.youtube.com/watch?v=ah_vve9bEBI&feature=youtu.be&t=43",
+		"category": [
+			"upper body"
+		],
+		"weights": {}
+	},
+	{
+		"activity_id": 2,
+		"title": "Toned Arms Workout / Madfit",
+		"duration": 10,
+		"intensity": "2",
+		"link": "https://youtu.be/W58uLI_FwYU?t=60",
+		"category": [
+			"arms"
+		],
+		"warmup": false
+	},
+	{
+		"activity_id": 3,
+		"title": "Back Workout (Tone, Build, & Define) / Madfit",
+		"duration": "20",
+		"intensity": "4",
+		"link": "https://youtu.be/14LTcAIwBoI?t=76",
+		"category": [
+			"upper body"
+		],
+		"warmup": false
+	},
+	{
+		"activity_id": 4,
+		"title": "Toned Legs & Round Booty Workout / Madfit",
+		"duration": "15",
+		"intensity": 3,
+		"link": "https://youtu.be/oqaoE2cvbYg?t=55",
+		"category": [
+			"legs"
+		],
+		"warmup": false
+	},
+	{
+		"activity_id": 5,
+		"title": "Full Body Workout With Weights / Madfit",
+		"duration": "20",
+		"intensity": "4",
+		"link": "https://youtu.be/pdtf6bnUpzk?t=63",
+		"category": [
+			"full body"
+		],
+		"warmup": false
+	},
+	{
+		"activity_id": 6,
+		"title": "Hand, Wrist, & Forearm Strengthening",
+		"duration": "5",
+		"intensity": "1",
+		"link": "https://youtu.be/R37_inXpZ3g?list=PLGr9RR2NJ8lSaM57-1P7Yx_xf107L_jpi&t=44",
+		"category": [
+			"wrists"
+		],
+		"warmup": false
+	},
+	{
+		"activity_id": 7,
+		"title": "Yoga Rinse - Yoga With Adriene",
+		"duration": "17",
+		"intensity": "1",
+		"link": "https://www.youtube.com/watch?v=3NtNAQodk8E",
+		"category": [
+			"yoga"
+		],
+		"warmup": false
+	},
+	{
+		"activity_id": 8,
+		"title": "5 Minute Total Body Barbell Workout - Climb the Ladder / Marsha, Short Circuits",
+		"duration": "5",
+		"intensity": "4",
+		"link": "https://www.youtube.com/watch?v=dYOwYRVDG9w&feature=youtu.be&t=71",
+		"category": [
+			"full body"
+		],
+		"warmup": false
+	},
+	{
+		"activity_id": 9,
+		"title": "Barbell And Bodyweight Workout / Marsha, Short Circuits",
+		"duration": "15",
+		"intensity": "5",
+		"link": "https://www.youtube.com/watch?v=RS96H1_zVYM&feature=youtu.be&t=27",
+		"category": [
+			"cardio",
+			"full body"
+		],
+		"warmup": false
+	}
 ]

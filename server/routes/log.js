@@ -14,8 +14,8 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  addToFile(logsFilePath, req.body);
-  res.status(201).end();
+  const data = addToFile(logsFilePath, req.body);
+  res.status(201).end(data);
 });
 
 module.exports = router;

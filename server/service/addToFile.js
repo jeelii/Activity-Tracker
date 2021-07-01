@@ -1,10 +1,21 @@
 const fs = require('fs');
+const createError = require('./createError');
+
+const nextId = arr => (arr.length > 0
+  ? arr[arr.length - 1].activity_id + 1
+  : 1);
 
 const addToFile = (file, data) => {
   const currentFileData = fs.readFileSync(file);
   try {
     const currentFileJson = JSON.parse(currentFileData);
     const newData = data;
+
+    if (/activities\.json/.test(file)) {
+      const activityId = nextId(currentFileJson);
+      newData.activitiy_id = activityId;
+    }
+
     currentFileJson.push(newData);
     const newFileData = JSON.stringify(currentFileJson, null, "\t");
     fs.writeFile(file, newFileData, (err) => {
