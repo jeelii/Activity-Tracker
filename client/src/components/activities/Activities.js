@@ -15,7 +15,11 @@ const Activities = ({ activities }) => {
             && <div className="activity__categories">
               {a.category.map(cat =>
                 <span className='activity__tag'>{cat}</span>
-              )}</div>}
+              )}</div>
+          }
+          <div className="activity__details">
+            <p>{a.duration} min</p>
+          </div>
         </div>
       )}
     </section>

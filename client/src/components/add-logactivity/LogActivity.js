@@ -1,13 +1,21 @@
 import { postToLog } from '../../utils/postToApi.js';
 import './AddLogActivity.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 const LogActivity = ({ calendar, activities, selectedDate }) => {
 
   const emptyActivity = { activity_id: '', duration: 10, date: selectedDate, intensity: 3 };
+
   const [newActivity, setNewActivity] = useState(emptyActivity);
+
+  useEffect(() => {
+    setNewActivity({
+      ...newActivity,
+      date: selectedDate,
+    });
+  }, [selectedDate])
 
   const schema = {
     activity_id: value => parseInt(value) === Number(value) && value >= 1,
@@ -83,7 +91,7 @@ const LogActivity = ({ calendar, activities, selectedDate }) => {
           name='date'
           onChange={newActivityInput}
           value={newActivity.date}
-          defaultValue={selectedDate}>
+        >
           {calendar.map(d =>
             <option value={d.date} key={d.date} >
               {moment(d.date).format("ddd MMMM DD")}

@@ -20,7 +20,7 @@
 }
 
 .activity__categories {
-  margin: 1rem 0 .5rem;
+  margin: 1rem 0 1rem;
 }
 
 .activity__tag {
@@ -32,6 +32,11 @@
   margin-left: 0;
   border-radius: .25rem;
   background: #d76d6d;
+  cursor: pointer;
+}
+
+.activity__details {
+  font-size: .8rem;
 }
 
 @media screen and (min-width: 400px) {

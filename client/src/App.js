@@ -45,7 +45,7 @@ const App = () => {
   }, [activityLog])
 
   return (
-    <main className="App">
+    <main className="app__main">
       <Header calendar={calendar} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
       <Switch>
         <Route path="/log-activity">
