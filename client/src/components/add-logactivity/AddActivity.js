@@ -1,10 +1,13 @@
 import './AddLogActivity.css';
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom';
 import { postToActivity } from '../../utils/postToApi.js';
 
-const AddActivity = ({ categories }) => {
+const AddActivity = ({ categories, setActivities, activities }) => {
   const emptyActivity = { title: '', duration: 10, link: 'https://', warmup: false, intensity: 3 };
   const [newActivity, setNewActivity] = useState(emptyActivity);
+
+  let history = useHistory();
 
   useEffect(() => {
     categories.map(cat => emptyActivity[cat] = false);
@@ -30,6 +33,8 @@ const AddActivity = ({ categories }) => {
     const activityToAdd = constructNewActivity(newActivity);
     postToActivity(activityToAdd);
     setNewActivity(emptyActivity);
+    setActivities([...activities, activityToAdd])
+    history.push('/');
     // }
   };
 
@@ -99,9 +104,21 @@ const AddActivity = ({ categories }) => {
         />
         <label htmlFor='warmup' className='add-activity__label'>Includes warmup</label>
         <br />
+        <h3 className='add-activity__sub-title'>Props</h3>
+        <input
+          type='checkbox'
+          name='barbell'
+          value={newActivity.barbell}
+          onChange={newActivityInput}
+          defaultChecked={newActivity.barbell}
+          className='add-activity__checkbox'
+          autoComplete='off'
+        />
+        <label htmlFor='barbell' className='add-activity__label'>Barbell</label>
+        <br />
         <h3 className='add-activity__sub-title'>Category</h3>
         {categories.map(cat =>
-          <div>
+          <div className='add-activity__category'>
             <input
               type='checkbox'
               name={cat}

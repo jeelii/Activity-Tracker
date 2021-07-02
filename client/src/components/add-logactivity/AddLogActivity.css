@@ -33,8 +33,9 @@
   outline: none;
 }
 
-.add-activity__input::placeholder {
-  color: #F2E6B6;
+.add-activity__category {
+  display: inline-block;
+  margin-right: .5rem;
 }
 
 .add-activity__checkbox {

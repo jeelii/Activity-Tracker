@@ -1,13 +1,21 @@
 import './Activities.css';
 import React from 'react'
+import YoutubeEmbed from '../youtube/YoutubeEmbed';
 
 const Activities = ({ activities }) => {
   return (
     <section className='app__section activities-section'>
       {activities.map(a =>
         <div className='activity' key={a.activity_id}>
-          <h2>{a.title}</h2>
-          <p>{a.category}</p>
+          <h2 className='activity__header'>{a.title}</h2>
+          {a.link
+            && <YoutubeEmbed link={a.link} />
+          }
+          {a.category
+            && <div className="activity__categories">
+              {a.category.map(cat =>
+                <span className='activity__tag'>{cat}</span>
+              )}</div>}
         </div>
       )}
     </section>

@@ -1,8 +1,7 @@
 .button {
-  width: 100%;
   padding: .75rem;
   border-radius: 0.25rem;
-  background: #8F9E8B;
+  background: #d76d6d;
   color: white;
   font-size: .75rem;
   letter-spacing: .07rem;
@@ -10,11 +9,11 @@
 }
 
 .button:hover {
-  background: #5B7876;
+  background: #fea771;
 }
 
 .button:focus {
-  border: #5B7876 solid 2px;
+  border: #fea771 solid 2px;
   outline: none;
-  background: #5B7876;
+  background: #d76d6d;
 }

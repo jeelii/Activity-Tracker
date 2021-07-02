@@ -1,6 +1,6 @@
 import './style';
 import React, { useState, useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import getLog from './utils/getLog';
 import getActivities from './utils/getActivities';
 import getCategories from './utils/getCategories';
@@ -9,6 +9,7 @@ import Header from './components/header/Header';
 import Activities from './components/activities/Activities';
 import LogActivity from './components/add-logactivity/LogActivity';
 import AddActivity from './components/add-logactivity/AddActivity';
+import moment from 'moment';
 
 const App = () => {
 
@@ -16,16 +17,15 @@ const App = () => {
   const [activities, setActivities] = useState([]);
   const [categories, setCategories] = useState([]);
   const [calendar, setCalendar] = useState(getDates());
+  const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
 
   useEffect(() => {
-    console.log('getting new log & getting activities & categories list...')
     getLog().then(res => setActivityLog(res))
     getActivities().then(res => setActivities(res))
     getCategories().then(res => setCategories(res))
   }, []);
 
   useEffect(() => {
-    console.log('log updated:', activityLog);
     const updateCalendar = calendar.map(d => (
       {
         ...d,
@@ -35,23 +35,22 @@ const App = () => {
     setCalendar(updateCalendar);
   }, [activityLog])
 
-  useEffect(() => {
-    console.log('cal updated:', calendar);
-  }, [calendar])
-
-  useEffect(() => {
-    console.log('cats updated:', categories);
-  }, [categories])
-
   return (
     <div className="App">
-      <Header calendar={calendar} />
+      <Header calendar={calendar} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
       <Switch>
         <Route path="/log-activity">
-          <LogActivity calendar={calendar} activities={activities} />
+          <LogActivity calendar={calendar} activities={activities} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+          {/* <Log activityLog={activityLog} activities={activities} /> */}
         </Route>
-        <Route path="/activities">
-          <AddActivity categories={categories} />
+        <Route path="/add-activity">
+          <AddActivity categories={categories} activities={activities} setActivities={setActivities} />
+        </Route>
+        <Route path="/">
+          <section className='app__section activities-section'>
+            <h2>Activities</h2>
+            <Link to="/add-activity"><button className="button">Add activity</button></Link>
+          </section>
           <Activities activities={activities} />
         </Route>
       </Switch>

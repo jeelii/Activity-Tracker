@@ -1,12 +1,21 @@
 import { postToLog } from '../../utils/postToApi.js';
 import './AddLogActivity.css';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import moment from 'moment';
 
-const LogActivity = ({ calendar, activities }) => {
-  const emptyActivity = { activity_id: '', duration: 10, date: '2021-07-01', intensity: 3 };
+const LogActivity = ({ calendar, activities, selectedDate, setSelectedDate }) => {
+
+  const emptyActivity = { activity_id: '', duration: 10, date: selectedDate, intensity: 3 };
   const [newActivity, setNewActivity] = useState(emptyActivity);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const hasDate = location.search.match(/date=([\d-]+)/);
+    const pickDate = hasDate ? hasDate[1] : moment().format('YYYY-MM-DD');
+    setSelectedDate(pickDate);
+  }, [])
 
   const schema = {
     activity_id: value => parseInt(value) === Number(value) && value >= 1,
@@ -75,14 +84,16 @@ const LogActivity = ({ calendar, activities }) => {
             </option>
           )}
         </select>
-        <p><Link to="/activities">Edit activities</Link></p>
+        <p><Link to="/activities"><button className="button">Edit activities</button></Link></p>
         <label htmlFor='date' className='add-activity__label'>Day</label>
         <select
           className='add-activity__select'
           name='date'
-          onChange={newActivityInput} value={newActivity.date}>
+          onChange={newActivityInput}
+          value={newActivity.date}
+          defaultValue={selectedDate}>
           {calendar.map(d =>
-            <option value={d.date}>
+            <option value={d.date} >
               {moment(d.date).format("ddd MMMM DD")}
             </option>
           )}

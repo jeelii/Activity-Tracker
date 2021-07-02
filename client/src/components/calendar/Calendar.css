@@ -7,8 +7,16 @@
   text-align: center;
 }
 
+.date:hover {
+  background: #fea771;
+}
+
 .date--active {
-  background: forestgreen;
+  background: #33ba99;
+}
+
+.date--selected {
+  background: #fea771;
 }
 
 .date__weekday,

@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #8F9E8B;
+  background: #ffdfbf;
   color: #292929;
   font-family: 'Ubuntu', sans-serif;
   font-weight: 300;
@@ -25,4 +25,11 @@ button {
 input,
 button {
   font-family: inherit;
+}
+
+address,
+a:hover,
+a:visited,
+a:-webkit-any-link {
+  text-decoration: none;
 }
