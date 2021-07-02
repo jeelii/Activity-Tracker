@@ -16,7 +16,7 @@
 .activity__header {
   font-weight: 300;
   margin-bottom: .5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .activity__categories {
@@ -37,6 +37,10 @@
 
 .activity__details {
   font-size: .8rem;
+}
+
+.activity__add-to-log-button {
+  float: right;
 }
 
 @media screen and (min-width: 400px) {

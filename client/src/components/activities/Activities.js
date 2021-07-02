@@ -5,7 +5,7 @@ import YoutubeEmbed from '../youtube/YoutubeEmbed';
 const Activities = ({ activities }) => {
   return (
     <section className='app__section activities-section'>
-      {activities.map(a =>
+      {activities.sort((a, b) => a.title > b.title ? 1 : -1).map(a =>
         <div className='activity' key={a.activity_id}>
           <h2 className='activity__header'>{a.title}</h2>
           {a.link
@@ -20,6 +20,7 @@ const Activities = ({ activities }) => {
           <div className="activity__details">
             <p>{a.duration} min</p>
           </div>
+          <button className="button activity__add-to-log-button">Add to log</button>
         </div>
       )}
     </section>
