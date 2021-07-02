@@ -108,7 +108,7 @@
 			"yoga"
 		],
 		"warmup": false,
-		"activitiy_id": 10
+		"activity_id": 10
 	},
 	{
 		"title": "Beach volleyball",
@@ -119,7 +119,7 @@
 			"cardio"
 		],
 		"warmup": false,
-		"activitiy_id": 11
+		"activity_id": 11
 	},
 	{
 		"title": "Dancing",
@@ -128,6 +128,30 @@
 		"link": "",
 		"category": [],
 		"warmup": false,
-		"activitiy_id": 12
+		"activity_id": 12
+	},
+	{
+		"title": "Pushups",
+		"duration": "5",
+		"intensity": "2",
+		"link": "",
+		"category": [
+			"arms"
+		],
+		"warmup": false,
+		"activity_id": 13
+	},
+	{
+		"title": "At Home Upper Body (Back & Biceps Dumbbell Workout) /Madfit",
+		"duration": 10,
+		"intensity": 3,
+		"link": "https://youtu.be/ranPUb8Tzwk?t=58",
+		"category": [
+			"arms",
+			"upper body",
+			"back"
+		],
+		"warmup": false,
+		"activity_id": 14
 	}
 ]
