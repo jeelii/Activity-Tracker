@@ -119,7 +119,7 @@
 			"cardio"
 		],
 		"warmup": false,
-		"activitiy_id": null
+		"activitiy_id": 11
 	},
 	{
 		"title": "Dancing",
@@ -128,6 +128,6 @@
 		"link": "",
 		"category": [],
 		"warmup": false,
-		"activitiy_id": null
+		"activitiy_id": 12
 	}
 ]

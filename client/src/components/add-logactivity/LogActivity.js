@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-const LogActivity = ({ calendar, activities, selectedDate }) => {
+const LogActivity = ({ calendar, activities, selectedDate, setActivityLog, activityLog }) => {
 
   const emptyActivity = { activity_id: '', duration: 10, date: selectedDate, intensity: 3 };
 
@@ -58,6 +58,7 @@ const LogActivity = ({ calendar, activities, selectedDate }) => {
       const activityToAdd = constructNewActivity(newActivity);
       postToLog(activityToAdd);
       setNewActivity(emptyActivity);
+      setActivityLog([...activityLog, activityToAdd])
     }
   };
 

@@ -28,5 +28,14 @@
 		"weights": {
 			"barbell": "10"
 		}
+	},
+	{
+		"activity_id": 2,
+		"date": "2021-06-23",
+		"duration": "15",
+		"intensity": "4",
+		"weights": {
+			"barbell": "10"
+		}
 	}
 ]

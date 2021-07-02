@@ -50,7 +50,7 @@ const App = () => {
       <Header calendar={calendar} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
       <Switch>
         <Route path="/log-activity">
-          <LogActivity calendar={calendar} activities={activities} selectedDate={selectedDate} />
+          <LogActivity calendar={calendar} activities={activities} selectedDate={selectedDate} setActivityLog={setActivityLog} activityLog={activityLog} />
           <Log activityLog={activityLog} activities={activities} />
         </Route>
         <Route path="/add-activity">

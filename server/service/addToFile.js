@@ -13,7 +13,7 @@ const addToFile = (file, data) => {
 
     if (/activities\.json/.test(file)) {
       const activityId = nextId(currentFileJson);
-      newData.activitiy_id = activityId;
+      newData.activity_id = activityId;
     }
 
     newData.activity_id = Number(newData.activitiy_id);
