@@ -14,7 +14,7 @@ const Activities = ({ activities }) => {
           {a.category
             && <div className="activity__categories">
               {a.category.map(cat =>
-                <span className='activity__tag'>{cat}</span>
+                <span className='activity__tag' key={cat}>{cat}</span>
               )}</div>
           }
           <div className="activity__details">

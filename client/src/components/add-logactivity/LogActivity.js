@@ -84,7 +84,7 @@ const LogActivity = ({ calendar, activities, selectedDate }) => {
             </option>
           )}
         </select>
-        <p><Link to="/activities"><button className="button">Edit activities</button></Link></p>
+        <p><Link to="/add-activity"><button className="button">Edit activities</button></Link></p>
         <label htmlFor='date' className='add-activity__label'>Day</label>
         <select
           className='add-activity__select'

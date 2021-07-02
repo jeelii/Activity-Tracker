@@ -9,6 +9,7 @@ import Header from './components/header/Header';
 import Activities from './components/activities/Activities';
 import LogActivity from './components/add-logactivity/LogActivity';
 import AddActivity from './components/add-logactivity/AddActivity';
+import Log from './components/log/Log';
 import moment from 'moment';
 
 const App = () => {
@@ -50,7 +51,7 @@ const App = () => {
       <Switch>
         <Route path="/log-activity">
           <LogActivity calendar={calendar} activities={activities} selectedDate={selectedDate} />
-          {/* <Log activityLog={activityLog} activities={activities} /> */}
+          <Log activityLog={activityLog} activities={activities} />
         </Route>
         <Route path="/add-activity">
           <AddActivity categories={categories} activities={activities} setActivities={setActivities} />

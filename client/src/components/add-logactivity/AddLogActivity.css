@@ -57,7 +57,7 @@
 }
 
 .add-activity__checkbox:checked {
-  background-color: #8F9E8B;
+  background-color: #33ba99;
   border: #5B7876 solid 2px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
   color: #000;

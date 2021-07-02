@@ -1,0 +1,31 @@
+.log-item__date {
+  text-transform: uppercase;
+  font-size: .8rem;
+  padding: .2rem;
+  margin: .5rem .5rem 1rem 0;
+  border-radius: .25rem;
+  background: #33ba99;
+
+}
+
+.log-item__title {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.log-item__categories {
+  margin: .5rem 0 .5rem;
+  display: inline-block;
+}
+
+.log-item__tag {
+  text-transform: uppercase;
+  font-size: .8rem;
+  font-weight: bold;
+  padding: .2rem;
+  margin: .5rem;
+  margin-left: 0;
+  border-radius: .25rem;
+  background: #d76d6d;
+  cursor: pointer;
+}

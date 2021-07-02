@@ -1,18 +1,17 @@
 import React from 'react'
+import LogItem from '../logitem/LogItem';
 
 const Log = ({ activityLog, activities }) => {
+
+  const getActivity = (id) => {
+    const index = activities.findIndex(a => a.activity_id === id);
+    return activities[index];
+  }
+
   return (
     <section className='app__section log-section'>
-      {activityLog.map(log =>
-        <div className='activity' key={log.activity_id}>
-          <h2>{activities.find(a => a.activity_id = log.activity_id)}</h2>
-          {log.category
-            && <div className="activity__categories">
-              {/* {a.category.map(cat =>
-                <span className='activity__tag'>{cat}</span>
-              )} */}
-            </div>}
-        </div>
+      {activityLog.sort((a, b) => a.date < b.date ? 1 : -1).map(log =>
+        <LogItem key={log.activity_id} log={log} activity={getActivity(log.activity_id)} />
       )}
     </section>
   )
