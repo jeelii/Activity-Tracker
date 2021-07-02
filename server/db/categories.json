@@ -8,5 +8,10 @@
 		"upper body",
 		"wrists",
 		"yoga"
+	],
+	"props": [
+		"barbell",
+		"dumbbell",
+		"bench"
 	]
 }

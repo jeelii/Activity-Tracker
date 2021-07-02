@@ -98,5 +98,36 @@
 			"full body"
 		],
 		"warmup": false
+	},
+	{
+		"title": "Yoga",
+		"duration": "30",
+		"intensity": 3,
+		"link": "",
+		"category": [
+			"yoga"
+		],
+		"warmup": false,
+		"activitiy_id": 10
+	},
+	{
+		"title": "Beach volleyball",
+		"duration": "60",
+		"intensity": 3,
+		"link": "",
+		"category": [
+			"cardio"
+		],
+		"warmup": false,
+		"activitiy_id": null
+	},
+	{
+		"title": "Dancing",
+		"duration": "60",
+		"intensity": 3,
+		"link": "",
+		"category": [],
+		"warmup": false,
+		"activitiy_id": null
 	}
 ]

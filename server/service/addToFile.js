@@ -16,6 +16,8 @@ const addToFile = (file, data) => {
       newData.activitiy_id = activityId;
     }
 
+    newData.activity_id = Number(newData.activitiy_id);
+
     currentFileJson.push(newData);
     const newFileData = JSON.stringify(currentFileJson, null, "\t");
     fs.writeFile(file, newFileData, (err) => {

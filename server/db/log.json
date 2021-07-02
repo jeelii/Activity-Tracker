@@ -12,5 +12,21 @@
 		"duration": 10,
 		"intensity": 3,
 		"count": ""
+	},
+	{
+		"activity_id": 9,
+		"date": "2021-06-27",
+		"duration": "15",
+		"intensity": "4",
+		"weights": {}
+	},
+	{
+		"activity_id": 5,
+		"date": "2021-06-21",
+		"duration": "20",
+		"intensity": 3,
+		"weights": {
+			"barbell": "10"
+		}
 	}
 ]
