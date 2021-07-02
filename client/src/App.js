@@ -1,6 +1,6 @@
 import './style';
 import React, { useState, useEffect } from 'react'
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, useLocation } from 'react-router-dom';
 import getLog from './utils/getLog';
 import getActivities from './utils/getActivities';
 import getCategories from './utils/getCategories';
@@ -13,16 +13,25 @@ import moment from 'moment';
 
 const App = () => {
 
+  const location = useLocation();
+
+  const getSelectedDate = () => {
+    const hasDate = location.search.match(/date=([\d-]+)/);
+    const pickDate = hasDate ? hasDate[1] : moment().format('YYYY-MM-DD');
+    return pickDate;
+  }
+
   const [activityLog, setActivityLog] = useState([]);
   const [activities, setActivities] = useState([]);
   const [categories, setCategories] = useState([]);
   const [calendar, setCalendar] = useState(getDates());
-  const [selectedDate, setSelectedDate] = useState(moment().format('YYYY-MM-DD'));
+  const [selectedDate, setSelectedDate] = useState('');
 
   useEffect(() => {
-    getLog().then(res => setActivityLog(res))
-    getActivities().then(res => setActivities(res))
-    getCategories().then(res => setCategories(res))
+    getLog().then(res => setActivityLog(res));
+    getActivities().then(res => setActivities(res));
+    getCategories().then(res => setCategories(res.categories));
+    setSelectedDate(getSelectedDate);
   }, []);
 
   useEffect(() => {
@@ -36,11 +45,11 @@ const App = () => {
   }, [activityLog])
 
   return (
-    <div className="App">
+    <main className="App">
       <Header calendar={calendar} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
       <Switch>
         <Route path="/log-activity">
-          <LogActivity calendar={calendar} activities={activities} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+          <LogActivity calendar={calendar} activities={activities} selectedDate={selectedDate} />
           {/* <Log activityLog={activityLog} activities={activities} /> */}
         </Route>
         <Route path="/add-activity">
@@ -54,7 +63,7 @@ const App = () => {
           <Activities activities={activities} />
         </Route>
       </Switch>
-    </div>
+    </main>
   )
 }
 
