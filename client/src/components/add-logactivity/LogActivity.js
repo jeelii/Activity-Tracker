@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const LogActivity = ({ calendar, activities, selectedDate, setActivityLog, activityLog }) => {
 
-  const emptyActivity = { activity_id: '', duration: 10, date: selectedDate, intensity: 3 };
+  const emptyActivity = { activity_id: 1, duration: '', date: selectedDate, intensity: '' };
 
   const [newActivity, setNewActivity] = useState(emptyActivity);
 
@@ -27,7 +27,7 @@ const LogActivity = ({ calendar, activities, selectedDate, setActivityLog, activ
   const validate = (object, schema) => Object
     .keys(schema)
     .filter(key => !schema[key](object[key]))
-    .map(key => new Error(`${key} is invalid.`));
+    .map(key => new Error(`${key} is invalid. (${object[key]})`));
 
   const validateInput = (activity) => {
     const errors = validate(activity, schema);
