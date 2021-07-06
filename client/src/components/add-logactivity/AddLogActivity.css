@@ -71,3 +71,10 @@
   left: 3px;
   color: #000;
 }
+
+.add-activity__validation-error p {
+  background: #fea771;
+  color: #fff;
+  padding: .5rem;
+  margin-bottom: .5rem;
+}

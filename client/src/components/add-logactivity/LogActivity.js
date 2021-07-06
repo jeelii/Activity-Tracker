@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const LogActivity = ({ calendar, activities, selectedDate, setActivityLog, activityLog }) => {
 
-  const emptyActivity = { activity_id: 1, duration: '', date: selectedDate, intensity: '' };
+  const emptyActivity = { activity_id: 1, duration: '', date: selectedDate, intensity: '', count: '' };
 
   const [newActivity, setNewActivity] = useState(emptyActivity);
 
@@ -27,15 +27,18 @@ const LogActivity = ({ calendar, activities, selectedDate, setActivityLog, activ
   const validate = (object, schema) => Object
     .keys(schema)
     .filter(key => !schema[key](object[key]))
-    .map(key => new Error(`${key} is invalid. (${object[key]})`));
+    .map(key => new Error(`Please enter ${key}.`));
 
   const validateInput = (activity) => {
     const errors = validate(activity, schema);
     if (errors.length > 0) {
+      const validationErrorContainer = document.querySelector('.add-activity__validation-error');
+      validationErrorContainer.innerHTML = '';
       for (const { message } of errors) {
         console.log(message);
-        return false;
+        validationErrorContainer.innerHTML += `<p>${message}</p>`;
       }
+      return false;
     } else {
       return true;
     }
@@ -146,6 +149,7 @@ const LogActivity = ({ calendar, activities, selectedDate, setActivityLog, activ
           className='add-activity__input'
           autoComplete='off'
         />
+        <span className="add-activity__validation-error"></span>
         <button type='submit' className='button'>
           Add to log</button>
       </form>
