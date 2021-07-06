@@ -27,6 +27,7 @@ const App = () => {
   const [categories, setCategories] = useState([]);
   const [calendar, setCalendar] = useState(getDates());
   const [selectedDate, setSelectedDate] = useState('');
+  const [selectedActivity, setSelectedActivity] = useState('');
 
   useEffect(() => {
     getLog().then(res => setActivityLog(res));
@@ -50,7 +51,7 @@ const App = () => {
       <Header calendar={calendar} selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
       <Switch>
         <Route path="/log-activity">
-          <LogActivity calendar={calendar} activities={activities} selectedDate={selectedDate} setActivityLog={setActivityLog} activityLog={activityLog} />
+          <LogActivity calendar={calendar} activities={activities} selectedDate={selectedDate} selectedActivity={selectedActivity} setActivityLog={setActivityLog} activityLog={activityLog} />
           <Log activityLog={activityLog} activities={activities} />
         </Route>
         <Route path="/add-activity">
@@ -61,7 +62,7 @@ const App = () => {
             <h2>Activities</h2>
             <Link to="/add-activity"><button className="button">Add activity</button></Link>
           </section>
-          <Activities activities={activities} />
+          <Activities activities={activities} setSelectedActivity={setSelectedActivity} />
         </Route>
       </Switch>
     </main>

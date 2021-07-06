@@ -40,7 +40,12 @@
 }
 
 .activity__add-to-log-button {
+  background: #fea771;
   float: right;
+}
+
+.activity__add-to-log-button:hover {
+  background: #33ba99;
 }
 
 @media screen and (min-width: 400px) {

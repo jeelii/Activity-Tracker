@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-const LogActivity = ({ calendar, activities, selectedDate, setActivityLog, activityLog }) => {
+const LogActivity = ({ calendar, activities, selectedDate, selectedActivity, setActivityLog, activityLog }) => {
 
-  const emptyActivity = { activity_id: 1, duration: '', date: selectedDate, intensity: '', count: '' };
+  const emptyActivity = { activity_id: selectedActivity, duration: '', date: selectedDate, intensity: '', count: '' };
 
   const [newActivity, setNewActivity] = useState(emptyActivity);
 
@@ -16,6 +16,13 @@ const LogActivity = ({ calendar, activities, selectedDate, setActivityLog, activ
       date: selectedDate,
     });
   }, [selectedDate])
+
+  useEffect(() => {
+    setNewActivity({
+      ...newActivity,
+      activity_id: selectedActivity,
+    });
+  }, [selectedActivity])
 
   const schema = {
     activity_id: value => parseInt(value) === Number(value) && value >= 1,

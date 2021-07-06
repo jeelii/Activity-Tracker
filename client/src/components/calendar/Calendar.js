@@ -7,10 +7,8 @@ const Calendar = ({ calendar, setSelectedDate, selectedDate }) => {
   let history = useHistory();
 
   const clickDate = e => {
-    // console.log(e.currentTarget.getAttribute('value'));
     const date = e.currentTarget.getAttribute('value');
     e.preventDefault();
-    // console.log(history.location.pathname);
     history.push(`/log-activity?date=${date}`);
     setSelectedDate(date);
   }

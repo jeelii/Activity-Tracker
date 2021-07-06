@@ -1,8 +1,19 @@
 import './Activities.css';
 import React from 'react'
+import { useHistory, Link } from 'react-router-dom';
 import YoutubeEmbed from '../youtube/YoutubeEmbed';
 
-const Activities = ({ activities }) => {
+const Activities = ({ activities, setSelectedActivity }) => {
+
+  let history = useHistory();
+
+  const clickActivity = e => {
+    const activity_id = e.currentTarget.getAttribute('value');
+    e.preventDefault();
+    history.push(`/log-activity?activity=${activity_id}`);
+    setSelectedActivity(activity_id);
+  }
+
   return (
     <section className='app__section activities-section'>
       {activities.sort((a, b) => a.title > b.title ? 1 : -1).map(a =>
@@ -20,7 +31,9 @@ const Activities = ({ activities }) => {
           <div className="activity__details">
             <p>{a.duration} min</p>
           </div>
-          <button className="button activity__add-to-log-button">Add to log</button>
+          <Link to={`/log-activity?activity=${a.activity_id}`} onClick={clickActivity} value={a.activity_id}>
+            <button className="button activity__add-to-log-button">Add to log</button>
+          </Link>
         </div>
       )}
     </section>
