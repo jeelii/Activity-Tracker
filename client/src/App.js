@@ -32,7 +32,7 @@ const App = () => {
   useEffect(() => {
     getLog().then(res => setActivityLog(res));
     getActivities().then(res => setActivities(res));
-    getCategories().then(res => setCategories(res.categories));
+    getCategories().then(res => setCategories(res));
     setSelectedDate(getSelectedDate);
   }, []);
 
