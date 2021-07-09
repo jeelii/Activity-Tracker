@@ -10,7 +10,7 @@ const Log = ({ activityLog, activities }) => {
 
   return (
     <section className='app__section log-section'>
-      {activityLog.sort((a, b) => a.date < b.date ? 1 : -1).map((log, index) =>
+      {activityLog.map((log, index) =>
         <LogItem key={index} log={log} activity={getActivity(log.activity_id)} />
       )}
     </section>

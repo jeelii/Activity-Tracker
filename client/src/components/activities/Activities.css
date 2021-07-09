@@ -37,6 +37,23 @@
 
 .activity__details {
   font-size: .8rem;
+  list-style-type: none;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.activity__details li {
+  display: inline;
+  white-space: nowrap;
+}
+
+.activity__details li:after {
+  content: ", ";
+  white-space: break-spaces;
+}
+
+.activity__details li:last-child:after {
+  content: "";
 }
 
 .activity__add-to-log-button {

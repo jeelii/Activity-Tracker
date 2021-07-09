@@ -28,12 +28,17 @@ const App = () => {
   const [calendar, setCalendar] = useState(getDates());
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedActivity, setSelectedActivity] = useState('');
+  const [initialLoad, setInitialLoad] = useState(true);
 
   useEffect(() => {
-    getLog().then(res => setActivityLog(res));
-    getActivities().then(res => setActivities(res));
-    getCategories().then(res => setCategories(res));
-    setSelectedDate(getSelectedDate);
+    if (initialLoad) {
+      console.log('initial load is true');
+      getLog().then(res => setActivityLog(res));
+      getActivities().then(res => setActivities(res));
+      getCategories().then(res => setCategories(res));
+      setSelectedDate(getSelectedDate);
+      setInitialLoad(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -62,7 +67,7 @@ const App = () => {
             <h2>Activities</h2>
             <Link to="/add-activity"><button className="button">Add activity</button></Link>
           </section>
-          <Activities activities={activities} setSelectedActivity={setSelectedActivity} />
+          <Activities activities={activities} setSelectedActivity={setSelectedActivity} activityLog={activityLog} />
         </Route>
       </Switch>
     </main>
