@@ -24,6 +24,7 @@ const addToFile = (file, data) => {
         throw createError(500, 'Error writing to file');
       }
     });
+    return newData.activity_id;
   } catch {
     throw createError(400, 'Bad json');
   }

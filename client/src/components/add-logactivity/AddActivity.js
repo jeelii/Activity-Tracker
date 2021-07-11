@@ -14,30 +14,34 @@ const AddActivity = ({ categories, setActivities, activities }) => {
       categories.categories.map(cat => emptyActivity[cat] = false);
       categories.props.map(cat => emptyActivity[cat] = false);
     }
-    console.log('cats updated:', emptyActivity);
   }, [categories])
 
   const constructNewActivity = activity => {
     const cats = [];
-    categories.map(cat => activity[cat] ? cats.push(cat) : '');
+    const props = [];
+    categories.categories.map(cat => activity[cat] ? cats.push(cat) : '');
+    categories.props.map(cat => activity[cat] ? cats.push(cat) : '');
     return {
       title: activity.title,
       duration: activity.duration,
-      intensity: activity.intensity,
       link: activity.link === 'https://' ? '' : activity.link,
       category: cats,
-      warmup: activity.warmup
+      props: props,
     }
   }
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     // if (validateInput(newActivity)) {
     const activityToAdd = constructNewActivity(newActivity);
-    postToActivity(activityToAdd);
+    const newId = await postToActivity(activityToAdd);
     setNewActivity(emptyActivity);
-    setActivities([...activities, activityToAdd])
-    history.push('/');
+    if (newId) {
+      activityToAdd.activity_id = newId;
+      setActivities([...activities, activityToAdd])
+      history.push('/');
+    }
+
     // }
   };
 
@@ -89,8 +93,8 @@ const AddActivity = ({ categories, setActivities, activities }) => {
         />
         <h3 className='add-activity__sub-title'>Props</h3>
         {categories.props !== undefined
-          && categories.props.map(cat =>
-            <div className='add-activity__category'>
+          && categories.props.map((cat, i) =>
+            <div className='add-activity__category' key={i}>
               <input
                 type='checkbox'
                 name={cat}
@@ -105,8 +109,8 @@ const AddActivity = ({ categories, setActivities, activities }) => {
           )}
         <h3 className='add-activity__sub-title'>Category</h3>
         {categories.categories !== undefined
-          && categories.categories.map(cat =>
-            <div className='add-activity__category'>
+          && categories.categories.map((cat, i) =>
+            <div className='add-activity__category' key={i}>
               <input
                 type='checkbox'
                 name={cat}

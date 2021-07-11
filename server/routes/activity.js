@@ -18,8 +18,10 @@ router.get('/category/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  addToFile(activitiesFilePath, req.body);
-  res.status(201).end();
+  const newActivityId = addToFile(activitiesFilePath, req.body);
+  res
+    .status(201)
+    .json({ activity_id: newActivityId });
 });
 
 module.exports = router;

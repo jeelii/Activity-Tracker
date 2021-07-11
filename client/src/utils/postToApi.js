@@ -10,13 +10,21 @@ const postToApi = async (url, data) => {
 const postToLog = async (data) => {
   const url = 'http://localhost:9000/api/log';
   const response = await postToApi(url, data);
-  console.log(response);
+  const jsonResponse = await response.json();
+  if (jsonResponse.activity_id) {
+    return jsonResponse.activity_id;
+  }
+  return null;
 }
 
 const postToActivity = async (data) => {
   const url = 'http://localhost:9000/api/activity';
   const response = await postToApi(url, data);
-  console.log(response);
+  const jsonResponse = await response.json();
+  if (jsonResponse.activity_id) {
+    return jsonResponse.activity_id;
+  }
+  return null;
 }
 
 export { postToLog, postToActivity };
