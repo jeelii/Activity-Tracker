@@ -6,7 +6,7 @@ import moment from 'moment';
 
 const LogActivity = ({ calendar, activities, selectedDate, selectedActivity, setActivityLog, activityLog }) => {
 
-  const emptyActivity = { activity_id: selectedActivity, duration: '', date: selectedDate, intensity: '', count: '' };
+  const emptyActivity = { activity_id: selectedActivity, date: selectedDate, duration: '', intensity: '', barbell: '', dumbbell: '', count: '' };
 
   const [newActivity, setNewActivity] = useState(emptyActivity);
 
@@ -88,7 +88,8 @@ const LogActivity = ({ calendar, activities, selectedDate, selectedActivity, set
         <select
           className='add-activity__select'
           name='activity_id'
-          onChange={newActivityInput} value={newActivity.activity_id}>
+          onChange={newActivityInput}
+          value={newActivity.activity_id}>
           {activities.map(a =>
             <option value={a.activity_id} key={a.activity_id}>
               {a.title}

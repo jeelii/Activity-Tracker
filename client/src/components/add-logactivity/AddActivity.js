@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { postToActivity } from '../../utils/postToApi.js';
 
 const AddActivity = ({ categories, setActivities, activities }) => {
-  const emptyActivity = { title: '', duration: 10, link: 'https://' };
+  const emptyActivity = { title: '', duration: '', link: 'https://' };
   const [newActivity, setNewActivity] = useState(emptyActivity);
 
   let history = useHistory();

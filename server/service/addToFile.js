@@ -18,6 +18,11 @@ const addToFile = (file, data) => {
 
     newData.activity_id = Number(newData.activity_id);
     currentFileJson.push(newData);
+
+    if (/log\.json/.test(file)) {
+      currentFileJson.sort((a, b) => a.date < b.date ? 1 : -1);
+    }
+
     const newFileData = JSON.stringify(currentFileJson, null, "\t");
     fs.writeFile(file, newFileData, (err) => {
       if (err) {
